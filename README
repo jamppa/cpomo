@@ -1,0 +1,9 @@
+# pomo
+
+Simple tool for pomodoro technique. My first attempt to write a Clojure program :)
+
+## License
+
+Copyright (C) 2011 Jani Arvonen
+
+Distributed under the Eclipse Public License, the same as Clojure.
