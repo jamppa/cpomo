@@ -1,5 +1,6 @@
 (ns cpomo.core
   (:use cpomo.gui)
+  (:use cpomo.screen)
   (:import (java.awt.event ActionListener))
   (:import (javax.swing Timer))
   (:gen-class))
@@ -19,7 +20,7 @@
 (def app-frame (ref (make-app-frame "Pomo v0.1")))
 (def start-btn (ref (make-btn "Start" act-listener)))
 (def pomo-lbl (ref (make-label "Press Start!")))
-(def pomodoro-length 60) ; 1500
+(def pomodoro-length 10) ; 1500
 
 (defstruct pomodoro :seconds :text)
 
@@ -55,7 +56,8 @@
 (defn on-pomodoro-used [pomodoro timer]
   (.stop timer)
   (enable-btn @start-btn)
-  (reset-current-pomodoro))
+  (reset-current-pomodoro)
+  (lock-screen))
 
 (def pomodoro-task
   (proxy [ActionListener] []
