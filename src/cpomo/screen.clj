@@ -33,7 +33,7 @@
     (.drawImage g img nil 0 0)
     (.dispose g) image))
 
-(defn release-screen [screen]
+(defn release-screen-task [screen]
   (proxy [ActionListener] []
     (actionPerformed [event]
       (.dispose screen))))
@@ -41,6 +41,6 @@
 (defn lock-screen []
   (let [screenshot (take-screenshot) 
         screen (show-image (translucentify-image screenshot 0.8))
-        timer (Timer. 5000 (release-screen screen))]
+        timer (Timer. 5000 (release-screen-task screen))]
     (.setRepeats timer false)
     (.start timer)))
