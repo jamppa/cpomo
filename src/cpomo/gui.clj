@@ -24,6 +24,9 @@
     (.setFont label (Font. "Arial" Font/PLAIN 26))
       label))
 
+(defn set-label-text [lbl {text :text}]
+  (.setText lbl text) lbl)
+
 (defn add-component-to-frame [frame component area]
   (let [panel (.getContentPane frame)]
     (.add panel component area)))

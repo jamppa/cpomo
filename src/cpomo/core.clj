@@ -63,7 +63,7 @@
   (proxy [ActionListener] []
     (actionPerformed [event] 
       (update-current-pomodoro)
-      (print-pomodoro @current-pomodoro)
+      (set-label-text @pomo-lbl @current-pomodoro)
       (if (pomodoro-used? @current-pomodoro) 
         (on-pomodoro-used @current-pomodoro (.getSource event))))))
 
