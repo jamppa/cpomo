@@ -57,7 +57,7 @@
   (.stop timer)
   (enable-btn @start-btn)
   (reset-current-pomodoro)
-  (lock-screen))
+  (block-screen))
 
 (def pomodoro-task
   (proxy [ActionListener] []

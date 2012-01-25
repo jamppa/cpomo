@@ -38,9 +38,10 @@
     (actionPerformed [event]
       (.dispose screen))))
 
-(defn lock-screen []
+(defn block-screen []
   (let [screenshot (take-screenshot) 
         screen (show-image (translucentify-image screenshot 0.8))
         timer (Timer. 5000 (release-screen-task screen))]
     (.setRepeats timer false)
     (.start timer)))
+
