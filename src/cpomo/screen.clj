@@ -4,6 +4,8 @@
   (:import (java.awt.event ActionListener))
   (:import (javax.swing JWindow Timer)))
 
+(def break-length-in-millis 300000)
+
 (defn take-screenshot [] 
   (let [robot (Robot.)]
     (.createScreenCapture robot 
@@ -41,7 +43,7 @@
 (defn block-screen []
   (let [screenshot (take-screenshot) 
         screen (show-image (translucentify-image screenshot 0.8))
-        timer (Timer. 5000 (release-screen-task screen))]
+        timer (Timer. break-length-in-millis (release-screen-task screen))]
     (.setRepeats timer false)
     (.start timer)))
 

@@ -20,7 +20,7 @@
 (def app-frame (ref (make-app-frame "Pomo v0.1")))
 (def start-btn (ref (make-btn "Start" act-listener)))
 (def pomo-lbl (ref (make-label "Press Start!")))
-(def pomodoro-length 10) ; 1500
+(def pomodoro-length 1500)
 
 (defstruct pomodoro :seconds :text)
 
